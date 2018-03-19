@@ -5,11 +5,11 @@
 <table>
   <thead>
     <tr>
-      <th>Id</th>
-      <th>Titulo</th>
-      <th>Contenido</th>
-      <th>Id user</th>
-      <th>Comentario</th>
+      <th>Titulo </th>
+      <th>Contenido </th>
+      <th>#Comentario</th>
+      <th>Posteado por</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +17,16 @@
   <tbody>
     <% @noticia.each do |noticium| %>
       <tr>
-        <td><%= noticium.id %></td>
         <td><%= noticium.titulo %></td>
         <td><%= noticium.contenido %></td>
-        <td><%= noticium.id_user %></td>
         <td><%= noticium.comentario %></td>
-        <td><%= link_to 'Show', noticium %></td>
-        <td><%= link_to 'Edit', edit_noticium_path(noticium) %></td>
-        <td><%= link_to 'Destroy', noticium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Show', noticium %></td>
+
+            <td><%= link_to 'Edit', edit_noticium_path(noticium) %></td>
+            <td><%= link_to 'Destroy', noticium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          
+        <% end %>
       </tr>
     <% end %>
   </tbody>

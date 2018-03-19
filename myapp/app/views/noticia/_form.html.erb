@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :id %>
-    <%= f.number_field :id %>
-  </div>
-
-  <div class="field">
     <%= f.label :titulo %>
+    <% if f.text_field.length > 200 %>
+    
     <%= f.text_field :titulo %>
+
   </div>
 
   <div class="field">
@@ -28,13 +26,9 @@
 
   <div class="field">
     <%= f.label :id_user %>
-    <%= f.number_field :id_user %>
+    <p><%= current_user.sign_in_count %></p>
   </div>
 
-  <div class="field">
-    <%= f.label :comentario %>
-    <%= f.number_field :comentario %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>
