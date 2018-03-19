@@ -2,14 +2,14 @@
 
 one:
   id: 1
-  id_user: 1
-  id_noticia: 1
-  texto: MyText
   titulo: MyString
+  contenido: MyText
+  id_user: 1
+  comentario: 1
 
 two:
   id: 1
-  id_user: 1
-  id_noticia: 1
-  texto: MyText
   titulo: MyString
+  contenido: MyText
+  id_user: 1
+  comentario: 1

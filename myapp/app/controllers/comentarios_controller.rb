@@ -69,6 +69,6 @@ class ComentariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comentario_params
-      params.fetch(:comentario, {})
+      params.require(:comentario).permit(:id, :id_user, :id_noticia, :texto, :titulo)
     end
 end
