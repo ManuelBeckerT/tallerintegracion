@@ -1,7 +1,6 @@
 class CreateComentarios < ActiveRecord::Migration[5.0]
   def change
     create_table :comentarios do |t|
-      t.integer :id
       t.integer :id_user
       t.integer :id_noticia
       t.text :texto
