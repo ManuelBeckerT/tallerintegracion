@@ -4,7 +4,7 @@ class NoticiaController < ApplicationController
   # GET /noticia
   # GET /noticia.json
   def index
-    @noticia = Noticium.all
+    @noticia = Noticium.all.order("created_at DESC")
   end
 
   # GET /noticia/1
@@ -69,6 +69,6 @@ class NoticiaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def noticium_params
-      params.require(:noticium).permit(:id, :titulo, :contenido, :id_user, :comentario)
+      params.require(:noticium).permit(:id, :titulo, :bajada, :contenido, :id_user, :comentario)
     end
 end

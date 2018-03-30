@@ -17,7 +17,10 @@
     <%= f.text_field :titulo %>
 
   </div>
-
+  <div class="field">
+    <%= f.label :bajada %>
+    <%= f.text_area :bajada %>
+  </div>
   <div class="field">
     <%= f.label :contenido %>
     <%= f.text_area :contenido %>
@@ -25,7 +28,6 @@
 
   <div class="field">
     <%= f.label :id_user %>
-    <p><%= current_user.sign_in_count %></p>
   </div>
 
 
