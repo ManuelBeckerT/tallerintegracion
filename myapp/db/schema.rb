@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20180330185449) do
   end
 
   create_table "noticia", force: :cascade do |t|
-    t.string   "titulo"    
+    t.string   "titulo"
     t.string   "bajada"
     t.text     "contenido"
     t.integer  "id_user"
