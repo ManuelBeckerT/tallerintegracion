@@ -26,12 +26,12 @@ ActiveRecord::Schema.define(version: 20180330185449) do
 
   create_table "noticia", force: :cascade do |t|
     t.string   "titulo"
-    t.text     "contenido"    
-    t.string   "bajada"
+    t.text     "contenido"
     t.integer  "id_user"
     t.integer  "comentario"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "bajada"
   end
 
   create_table "users", force: :cascade do |t|
