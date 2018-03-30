@@ -9,8 +9,8 @@
           <div class="caption">
             <h3><%= noticium.titulo %> </h3>
             <h4><%= noticium.bajada %></h4>
-            <p><%= noticium.contenido %></p>
-            <p><a href="#" class="btn btn-primary" role="button">Show</a>
+            <p><%= truncate(noticium.contenido, length:500, :separator => ' ') %></p>
+            <p><%= link_to 'Show', noticium %>  </a>
               <button class="btn btn-primary" type="button">
                 Comentarios <span class="badge"><%= noticium.comentario %></span>
               </button></p>
