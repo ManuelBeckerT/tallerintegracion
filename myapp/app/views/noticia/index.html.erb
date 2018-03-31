@@ -3,7 +3,7 @@
 <h1>Noticia</h1>
 
 <% if user_signed_in? %>
-  <%= link_to 'New Noticium', new_noticium_path %>
+  <h2><%= link_to 'Cear Noticia', new_noticium_path %></h2>
 <% end %>
 
 <div class="row">
@@ -16,13 +16,13 @@
             <p><%= truncate(noticium.contenido, length:500, :separator => ' ') %></p>
             <p><%= link_to 'Show', noticium %>  </a>
               <button class="btn btn-primary" type="button">
-                Comentarios <span class="badge"><%= noticium.comentario %></span>
+                Comentarios <span class="badge"><%= noticium.comments.count %></span>
               </button></p>
 
           </div>
           <% if user_signed_in? %>
               <td><%= link_to 'Edit', edit_noticium_path(noticium) %></td>
-              <td><%= link_to 'Destroy', noticium, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to 'Destroy', noticium, method: :delete, data: { confirm: 'Estás seguro/a?' } %></td>
 
           <% end %>
         </div>

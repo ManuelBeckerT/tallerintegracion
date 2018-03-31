@@ -1,7 +1,13 @@
-<p> <%= comment.name %> </p>
-<p> <%= comment.body %> </p>
-
-
-<p> <%= link_to 'Eliminar',
-[comment.noticium, comment], method: :delete, class: "button", data: {confirm: 'Estás seguro de querer continuar?'}
-%></p>
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+        <h3><%= comment.name %></h3>
+        <p> <%= comment.body %> </p>
+        <% if user_signed_in? %>
+          <p> <%= link_to 'Eliminar',
+          [comment.noticium, comment], method: :delete, class: "btn btn-primary", role: "button", data: {confirm: 'Estás seguro de querer continuar?'}
+          %></p>
+        <% end %>
+    </div>
+  </div>
+</div>

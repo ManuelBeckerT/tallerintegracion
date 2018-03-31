@@ -12,4 +12,5 @@ class CommentsController < ApplicationController
 
       redirect_to noticium_path(@noticium)
   end
+
 end
