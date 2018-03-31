@@ -14,15 +14,36 @@
 
 <p>
   <% if user_signed_in? %>
-    <strong>Nombre:</strong>
+    <strong>Administrador:</strong>
     <%= current_user.email %>
   <%end%>
 </p>
 
 <p>
   <strong># Comentarios:</strong>
-  <%= @noticium.comentario %>
+  <%= @noticium.comments.count %>
+  <%= render @noticium.comments %>
+
 </p>
 
-<%= link_to 'Edit', edit_noticium_path(@noticium) %> |
-<%= link_to 'Back', noticia_path %>
+<p> COMENTAR </p>
+<%= render "comments/form" %>
+<p> <%= link_to 'Comentar', new_comentario_path  %> </p>
+
+<% if false %>
+<tbody>
+  <% @noticium.comentarios.each do |comment| %>
+    <tr>
+        <td>comment.titulo</td>
+        <td>comment.texto</td>
+        <td></td>
+    </tr>
+
+</tbody>
+<% end %>
+<% end %>
+
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_noticium_path(@noticium) %> |
+  <%= link_to 'Back', noticia_path %>
+<% end %>

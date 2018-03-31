@@ -1,4 +1,4 @@
 class Noticium < ApplicationRecord
-  has_many :Comentarios
+  has_many :comments
 
 end

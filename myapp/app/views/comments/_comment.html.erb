@@ -1,0 +1,7 @@
+<p> <%= comment.name %> </p>
+<p> <%= comment.body %> </p>
+
+
+<p> <%= link_to 'Eliminar',
+[comment.noticium, comment], method: :delete, data: {confirm: 'Estás seguro de querer continuar?'}
+%></p>
