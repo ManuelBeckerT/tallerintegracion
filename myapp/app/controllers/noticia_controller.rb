@@ -25,7 +25,8 @@ class NoticiaController < ApplicationController
   # POST /noticia.json
   def create
     @noticium = Noticium.new(noticium_params)
-    print(@noticium.titulo.length)
+    @noticium.comentario = 0
+    @noticium.id_user = current_user.id
     respond_to do |format|
       if @noticium.save
         format.html { redirect_to @noticium, notice: 'Noticium was successfully created.' }

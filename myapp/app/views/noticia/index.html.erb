@@ -2,6 +2,10 @@
 
 <h1>Noticia</h1>
 
+<% if user_signed_in? %>
+  <%= link_to 'New Noticium', new_noticium_path %>
+<% end %>
+
 <div class="row">
   <% @noticia.each do |noticium| %>
     <div class="col-sm-6 col-md-4">
@@ -14,6 +18,7 @@
               <button class="btn btn-primary" type="button">
                 Comentarios <span class="badge"><%= noticium.comentario %></span>
               </button></p>
+
           </div>
           <% if user_signed_in? %>
               <td><%= link_to 'Edit', edit_noticium_path(noticium) %></td>
@@ -26,6 +31,3 @@
 </div>
 
 <br>
-<% if user_signed_in? %>
-  <%= link_to 'New Noticium', new_noticium_path %>
-<% end %>
