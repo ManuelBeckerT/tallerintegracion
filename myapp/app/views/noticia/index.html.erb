@@ -7,22 +7,22 @@
 <% end %>
 
 <div class="row">
-  <% @noticia.each do |noticium| %>
+  <% @noticia.each  do |noticium| %>
     <div class="col-sm-6 col-md-4">
         <div class="thumbnail">
           <div class="caption">
             <h3><%= noticium.titulo %> </h3>
             <h4><%= noticium.bajada %></h4>
             <p><%= truncate(noticium.contenido, length:500, :separator => ' ') %></p>
-            <p><%= link_to 'Show', noticium %>  </a>
+            <p><%= link_to 'Ver más', noticium %>  </a>
               <button class="btn btn-primary" type="button">
                 Comentarios <span class="badge"><%= noticium.comments.count %></span>
               </button></p>
 
           </div>
           <% if user_signed_in? %>
-              <td><%= link_to 'Edit', edit_noticium_path(noticium) %></td>
-              <td><%= link_to 'Destroy', noticium, method: :delete, data: { confirm: 'Estás seguro/a?' } %></td>
+              <td><%= link_to 'Editar', edit_noticium_path(noticium) %></td>
+              <td><%= link_to 'Eliminar', noticium, method: :delete, clas: "btn btn-primary", button: "button", data: { confirm: 'Estás seguro/a?' } %></td>
 
           <% end %>
         </div>
