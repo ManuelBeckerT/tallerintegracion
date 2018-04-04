@@ -8,6 +8,11 @@ class Api::NoticiaController < ApplicationController
     render json: @noticia
   end
 
+  def index_comments
+    @noticium = Noticium.find( params[:id] )
+    render json: @noticium.comments
+  end
+
   def new
     @noticium = Noticium.new
   end
