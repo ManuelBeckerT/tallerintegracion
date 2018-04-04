@@ -14,7 +14,7 @@ class Api::NoticiaController < ApplicationController
   end
 
   def show
-    respond_with Noticium.find( params[:id] )
+    render json: Noticium.find( params[:id] )
   end
 
   def create
