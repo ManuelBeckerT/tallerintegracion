@@ -1,7 +1,6 @@
 class Api::NoticiaController < ApplicationController
   protect_from_forgery with: :null_session
 
-  before_action :set_noticium, only: [:show, :edit, :update, :destroy]
   respond_to :json
 
   def index
@@ -14,7 +13,10 @@ class Api::NoticiaController < ApplicationController
   end
 
   def show
-    render json: Noticium.find( params[:id] )
+    @noticium = Noticium.find( params[:id])
+    render json: @noticium
+    rescue ActiveRecord::RecordNotFound => e
+        render json: { error: "not found" }, status: :not_found
   end
 
   def create
@@ -31,15 +33,16 @@ class Api::NoticiaController < ApplicationController
 
   end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_noticium
-      @noticium = Noticium.find(params[:id])
-    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def noticium_params
       params.require(:noticium).permit(:id, :titulo, :bajada, :contenido, :id_user, :comentario)
     end
+
+
 
 end

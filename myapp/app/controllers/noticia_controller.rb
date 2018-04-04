@@ -1,10 +1,11 @@
 class NoticiaController < ApplicationController
   before_action :set_noticium, only: [:show, :edit, :update, :destroy]
 
+  PER_PAGE_RECORDS = 10
   # GET /noticia
   # GET /noticia.json
   def index
-    @noticia = Noticium.all.order("created_at DESC")
+    @noticia = Noticium.order("created_at DESC")
   end
 
   # GET /noticia/1
