@@ -2,9 +2,13 @@
 
 <h1>Noticia</h1>
 
-<% if user_signed_in? %>
-  <h2><%= link_to 'Cear Noticia', new_noticium_path %></h2>
+<% if false %>
+  <% if user_signed_in? %>
+    <h2><%= link_to 'Cear Noticia', new_noticium_path %></h2>
+  <% end %>
 <% end %>
+
+<h2><%= link_to 'Cear Noticia', new_noticium_path %></h2>
 
 <div class="row">
   <% @noticia.each  do |noticium| %>
@@ -20,11 +24,15 @@
               </button></p>
 
           </div>
-          <% if user_signed_in? %>
+          <% if false %>
+            <% if user_signed_in? %>
               <td><%= link_to 'Editar', edit_noticium_path(noticium) %></td>
               <td><%= link_to 'Eliminar', noticium, method: :delete, clas: "btn btn-primary", button: "button", data: { confirm: 'Estás seguro/a?' } %></td>
+            <% end %>
 
           <% end %>
+          <td><%= link_to 'Editar', edit_noticium_path(noticium) %></td>
+          <td><%= link_to 'Eliminar', noticium, method: :delete, clas: "btn btn-primary", button: "button", data: { confirm: 'Estás seguro/a?' } %></td>
         </div>
     </div>
     <% end %>
