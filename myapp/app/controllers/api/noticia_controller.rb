@@ -13,6 +13,12 @@ class Api::NoticiaController < ApplicationController
     render json: @noticium.comments
   end
 
+  def create_comments
+    @noticium = Noticium.find(params[:id])
+    @comment = @noticium.comments.create(params[:name])
+    render json: @noticium.comments
+  end
+
   def new
     @noticium = Noticium.new
   end

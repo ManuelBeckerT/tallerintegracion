@@ -18,5 +18,6 @@ Rails.application.routes.draw do
 
   # comments
   get 'api/news/:id/comments' => 'api/noticia#index_comments'
+  post 'api/news/:id/comments' => 'api/noticia#create_comments'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
