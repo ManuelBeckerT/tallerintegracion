@@ -19,6 +19,7 @@ class Api::NoticiaController < ApplicationController
     render json: @comment, status: 201
   end
 
+
   def new
     @noticium = Noticium.new
   end
