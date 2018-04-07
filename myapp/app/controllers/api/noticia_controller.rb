@@ -15,8 +15,8 @@ class Api::NoticiaController < ApplicationController
 
   def create_comments
     @noticium = Noticium.find(params[:id])
-    @comment = @noticium.comments.create(params[:name])
-    render json: @noticium.commentsw
+    @comment = @noticium.comments.create(params.permit(:name, :body))
+    render json: @comment, status: 201
   end
 
   def new
