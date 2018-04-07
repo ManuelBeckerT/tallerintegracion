@@ -16,7 +16,7 @@ class Api::NoticiaController < ApplicationController
   def create_comments
     @noticium = Noticium.find(params[:id])
     @comment = @noticium.comments.create(params[:name])
-    render json: @noticium.comments
+    render json: @noticium.commentsw
   end
 
   def new
@@ -48,6 +48,9 @@ class Api::NoticiaController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_noticium
+      @noticium = Noticium.find(params[:id])
+    end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def noticium_params
