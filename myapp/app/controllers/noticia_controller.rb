@@ -11,6 +11,7 @@ class NoticiaController < ApplicationController
   # GET /noticia/1
   # GET /noticia/1.json
   def show
+    
   end
 
   # GET /noticia/new
