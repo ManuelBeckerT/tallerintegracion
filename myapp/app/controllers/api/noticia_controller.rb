@@ -31,6 +31,12 @@ class Api::NoticiaController < ApplicationController
         render json: { error: "not found" }, status: :not_found
   end
 
+  def show_comment
+    @noticium = Noticium.find(params[:id])
+    @comment = @noticium.comments.find(params[:id2])
+    render json: @comment 
+  end
+
   def create
     @noticium = Noticium.new(noticium_params)
     @noticium.comentario = 0
