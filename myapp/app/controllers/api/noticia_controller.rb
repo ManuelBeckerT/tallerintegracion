@@ -44,7 +44,18 @@ class Api::NoticiaController < ApplicationController
 
   end
 
+  def destroy
+    @noticium = Noticium.find( params[:id])
+    @noticium.destroy
+    render json: {}
+  end
 
+  def destroy_comment
+    @noticium = Noticium.find(params[:id])
+    @comment = @noticium.comments.find(params[:id2])
+    @comment.destroy
+    render json: {}
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

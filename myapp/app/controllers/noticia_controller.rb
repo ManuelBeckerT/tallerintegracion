@@ -27,7 +27,6 @@ class NoticiaController < ApplicationController
   def create
     @noticium = Noticium.new(noticium_params)
     @noticium.comentario = 0
-    @noticium.id_user = current_user.id
     respond_to do |format|
       if @noticium.save
         format.html { redirect_to @noticium, notice: 'Se creó correctamente.' }
