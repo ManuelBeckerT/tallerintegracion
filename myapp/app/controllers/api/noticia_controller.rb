@@ -15,7 +15,9 @@ class Api::NoticiaController < ApplicationController
 
   def create_comments
     @noticium = Noticium.find(params[:id])
-    @comment = @noticium.comments.create(params.permit(:name, :body))
+    @comment = @noticium.comments.create()
+    @comment.name = params[:name]
+    @comment.body = params[:body]
     render json: @comment, status: 201
   end
 
@@ -34,16 +36,20 @@ class Api::NoticiaController < ApplicationController
   def show_comment
     @noticium = Noticium.find(params[:id])
     @comment = @noticium.comments.find(params[:id2])
-    render json: @comment 
+    render json: @comment
   end
 
   def create
-    @noticium = Noticium.new(noticium_params)
+
+    @noticium = Noticium.new
+    @noticium.titulo = params[:title]
     @noticium.comentario = 0
-    @noticium.id_user = current_user.id
+    @noticium.contenido = params[:body]
+    @noticium.bajada = params[:subtitle]
     respond_to do |format|
       if @noticium.save
-        format.json { render :show, status: :created, location: @noticium }
+        #format.json { render :show, status: :created, location: @noticium }
+        format.json {render json: @noticium, status: 201}
       else
         format.json { render json: @noticium.errors, status: :unprocessable_entity }
       end
